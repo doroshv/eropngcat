@@ -1,12 +1,11 @@
 # epngcat
 
-Pipeline that extracts an X-ray point-source catalogue (EIMG) from the SRG/eROSITA eRASS1 all-sky RGB
-press image alone. Positions and fluxes are calibrated and validated against the eRASS1-DE Main
-catalogue (western Galactic half, l = 180–360°) and then applied to the whole sky, including the
-eastern (RU) half for which no eRASS1 catalogue is public.
+Pipeline that extracts an X-ray point-source catalogue (ePNGCAT) from the SRG/eROSITA eRASS1 all-sky RGB
+press-kit image <https://www.mpe.mpg.de/7461950/erass1-presskit>. Positions and fluxes are calibrated and validated against the eRASS1-DE Main
+catalogue v 1.2 (western Galactic half, l = 180-360°) and then applied to the whole sky, including the eastern (RU) half for which no catalogue is published as of now. For western part of the sky the proper eRASS1 (or eRASS:3) catalogue is obviously preferred.
 
 The catalogue, HEALPix maps and the input image are released separately on Zenodo:
-<https://zenodo.org/records/XXXXXXX>. This repository holds only the code.
+<https://zenodo.org/records/XXXXXXX>. This repository holds only the code, input data must be downloaded separately.
 
 ## Quick start
 
@@ -32,9 +31,9 @@ saved products without refitting), `make clean` (remove `out/`).
 
 ## Pipeline
 
-Each step is a module `epngcat/sNN_*.py` that writes to `out/NN_*/`. The DE half is divided into
+Each step is a module `epngcat/sNN_*.py` that writes to `out/NN_*/`. The DE (western) half is divided into
 ~2×2° tiles grouped in ~10° blocks, which are randomly split 60/20/20 into training, validation and test
-regions. Models are fitted on training blocks, selected on validation blocks, and evaluated on test blocks.
+regions. Models are tuned on training blocks, selected on validation blocks, and evaluated on test blocks.
 
 | Step | Purpose |
 |---|---|
@@ -56,7 +55,7 @@ regions. Models are fitted on training blocks, selected on validation blocks, an
 | 18 | Publication figures |
 
 The generated catalogue documentation (`CATALOG_README.md`, written by step 13) describes every
-product, the validation results and all catalogue columns.
+product, the validation results and all catalogue columns. You don't need to download zenodo record if you intend to reproduce results, those are provided for convinience. The run time of the full pipeline is a few hours on MBP M1 pro, shall be comparable on pc. 
 
 ## Data release
 
