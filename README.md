@@ -5,7 +5,7 @@ press-kit image <https://www.mpe.mpg.de/7461950/erass1-presskit>. Positions and 
 catalogue v 1.2 (western Galactic half, l = 180-360°) and then applied to the whole sky, including the eastern (RU) half for which no catalogue is published as of now. For western part of the sky the proper eRASS1 (or eRASS:3) catalogue is obviously preferred.
 
 The catalogue, HEALPix maps and the input image are released separately on Zenodo:
-<https://zenodo.org/records/XXXXXXX>. This repository holds only the code, input data must be downloaded separately.
+<https://zenodo.org/records/23640281>. This repository holds only the code, input data must be downloaded separately.
 
 ## Quick start
 
