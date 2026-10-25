@@ -1,0 +1,20 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+*.fits
+*.png
+data/
+out/
+out_prev/
+
+# OS and release artefacts
+.DS_Store
+*.tar.gz
+*.log

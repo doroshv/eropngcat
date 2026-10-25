@@ -1,0 +1,51 @@
+[project]
+name = "epngcat"
+version = "0.1.0"
+description = "Source catalogue extracted from the eRASS1 all-sky PR image"
+requires-python = ">=3.13"
+dependencies = [
+    "astropy>=8.0.1",
+    "astropy-healpix>=2.0.1",
+    "astroquery>=0.4.11",
+    "healpy>=1.20.0",
+    "matplotlib>=3.11.2",
+    "numpy>=2.5.3",
+    "pandas>=3.0.5",
+    "photutils>=3.0.0",
+    "pillow>=12.3.0",
+    "pyarrow>=25.0.1",
+    "requests>=2.34.2",
+    "scikit-learn>=1.9.1",
+    "scipy>=1.18.1",
+    "xgboost>=3.4.1",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1",
+    "ruff>=0.16.8",
+]
+
+[tool.ruff]
+fix = true
+extend-exclude = ["paperdraft"]  # LaTeX sources and the journal template's example script
+show-fixes = true
+line-length = 120
+
+[tool.ruff.lint]
+select = ["D", "E", "F", "UP", "SIM", "I"]
+ignore = ["D105", "D107", "E741"]  # E741: `l` is Galactic longitude throughout
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["D103"]
+# Markdown report templates: long f-string table rows are kept on one line for readability.
+"epngcat/s1[023]*_*.py" = ["E501"]
+
+[tool.ruff.lint.pydocstyle]
+convention = "numpy"
+
+[tool.ruff.lint.pycodestyle]
+ignore-overlong-task-comments = true
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
